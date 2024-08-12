@@ -1,0 +1,66 @@
+.Nav {
+    position: fixed; /* Make navbar fixed */
+    top: 0; /* Align navbar to the top */
+    left: 0;
+    width: 100%; /* Full width */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 0px 20px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.LogoContainer {
+    display: flex;
+    align-items: center;
+}
+
+.Logo {
+    width: 80px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.CompanyName {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.NavLinks {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.NavItem {
+    margin-left: 20px;
+}
+
+.StyledLink {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.StyledLink:hover {
+    color: rgb(0, 183, 255);
+}
+
+.StyledLink:hover::after {
+    content: '';
+    height: 2px;
+    width: 100%;
+    background-color: rgb(0, 183, 255);
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}

@@ -1,0 +1,54 @@
+.home-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .map-card {
+    width: 50%;
+    margin-right: 20px;
+  }
+  
+  .info-section {
+    width: 45%;
+    text-align: center;
+  }
+  
+  .company-name {
+    font-size: 2.5rem;
+    color: #333;
+  }
+  
+  .tagline {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #777;
+  }
+  
+  .emergency-button {
+    font-size: 1.5rem;
+    padding: 15px 30px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .emergency-button:hover {
+    background-color: darkred;
+  }
+  
+  .chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    border: 2px solid #ccc;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
