@@ -1,16 +1,16 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
-import ReportIncident from './Components/ReportIncident';
 import NOCApplication from './Components/NocApplication';
 import BookFireDrill from './Components/BookFireDrill';
 import Resources from './Components/Resources';
 import Contact from '../src/Components/Contact';
+import Chatbot from '../src/Components/Chatbot'
 
 const App = () => {
     return (
         <div>
+          <Chatbot/>
           <Navbar />
           <Home />
           <NOCApplication />

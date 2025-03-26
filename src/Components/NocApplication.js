@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Form, Button } from 'react-bootstrap';
+import nocbackground from '../images/nocbackground.jpg';
 
 const NOCApplication = () => {
     const [formData, setFormData] = useState({
@@ -26,7 +27,7 @@ const NOCApplication = () => {
     };
 
     return (
-        <PageContainer id='noc-application'>
+        <PageContainer id="noc-application">
             <ContentContainer>
                 <Title>Apply for Fire NOC</Title>
                 <FormContainer>
@@ -92,45 +93,84 @@ const NOCApplication = () => {
     );
 };
 
+// Styled components (updated for responsiveness)
 const PageContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Full viewport height */
-    background-color: #f0f0f0; /* Light background color */
+  margin-top: 50px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 100vh;
+  background-image: url(${nocbackground});
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 20px; /* Ensure some padding on smaller screens */
+  
+  @media (max-width: 768px) {
+    height: auto; /* Allow height to adjust for smaller screens */
+    padding: 10px;
+  }
 `;
 
 const ContentContainer = styled.div`
-    width: 100%;
-    max-width: 600px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-`;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9); /* Add slight background to improve readability */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
-const Title = styled.h1`
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
+  @media (max-width: 768px) {
+    max-width: 100%; /* Use full width on smaller screens */
+    padding: 15px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px;
+  }
 `;
 
 const FormContainer = styled.div`
-    width: 100%;
+  width: 100%;
+`;
+
+const Title = styled.h1`
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow to the text */
+
+  @media (max-width: 768px) {
+    font-size: 24px; /* Reduce font size on smaller screens */
+  }
+
+  @media (max-width: 480px) {
+    font-size: 20px;
+  }
 `;
 
 const SubmitButton = styled(Button)`
-    margin-top: 20px;
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    background-color: #fe6434;
-    border: none;
-    border-radius: 5px;
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #fe6434;
+  border: none;
+  border-radius: 5px;
 
-    &:hover {
-        background-color: #e5532d;
-    }
+  &:hover {
+    background-color: #e5532d;
+  }
+
+  @media (max-width: 768px) {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 6px;
+    font-size: 12px;
+  }
 `;
 
 export default NOCApplication;

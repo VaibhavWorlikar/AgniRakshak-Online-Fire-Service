@@ -6,8 +6,7 @@ const Contact = () => {
             <div id='contact' style={styles.container}>
                 <div style={styles.infoSection}>
                     <h2>Contact Us</h2>
-                    <p>123 Fire Street, Suite 456</p>
-                    <p>Fire City, FC 78910</p>
+                    <p>123 Mumbai, Suite 456</p>
                     <p>Email: <a href="mailto:support@agnirakshak.com">support@agnirakshak.com</a></p>
                     <p>Phone: <a href="tel:+91 9137570589">+91 9137570589</a></p>
                 </div>

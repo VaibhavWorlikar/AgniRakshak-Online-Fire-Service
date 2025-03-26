@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-scroll"; // Import Link from react-scroll
+import { Link } from "react-scroll"; 
 import styled from "styled-components";
 import logo from "../images/logo.png";
 
@@ -12,54 +12,19 @@ const Navbar = () => {
       </LogoContainer>
       <NavLinks>
         <NavItem>
-          <StyledLink
-            to="home" // Ensure this matches the ID of your target section
-            smooth={true}
-            offset={-75}
-            duration={500}
-          >
-            Home
-          </StyledLink>
+          <StyledLink to="home" smooth={true} duration={500}>Home</StyledLink>
         </NavItem>
         <NavItem>
-          <StyledLink
-            to="noc-application" // Ensure this matches the ID of your target section
-            smooth={true}
-            offset={-75}
-            duration={500}
-          >
-            NOC Application
-          </StyledLink>
+          <StyledLink to="noc-application" smooth={true} duration={500} offset={-35}>NOC Application</StyledLink>
         </NavItem>
         <NavItem>
-          <StyledLink
-            to="fire-drill" // Ensure this matches the ID of your target section
-            smooth={true}
-            offset={-65}
-            duration={500}
-          >
-            Book a Fire-Drill
-          </StyledLink>
+          <StyledLink to="fire-drill" smooth={true} duration={500} offset={-35}>Book a Fire-Drill</StyledLink>
         </NavItem>
         <NavItem>
-          <StyledLink
-            to="resources" // Ensure this matches the ID of your target section
-            smooth={true}
-            offset={-75}
-            duration={500}
-          >
-            Resources
-          </StyledLink>
+          <StyledLink to="resources" smooth={true} duration={500} offset={-35}>Resources</StyledLink>
         </NavItem>
         <NavItem>
-          <StyledLink
-            to="contact" // Ensure this matches the ID of your target section
-            smooth={true}
-            offset={-75}
-            duration={500}
-          >
-            Contact
-          </StyledLink>
+          <StyledLink to="contact" smooth={true} duration={500}>Contact</StyledLink>
         </NavItem>
       </NavLinks>
     </Nav>
@@ -67,16 +32,17 @@ const Navbar = () => {
 };
 
 const Nav = styled.nav`
-  position: fixed; /* Make navbar fixed */
-  top: 0; /* Align navbar to the top */
+  position: fixed;
+  top: 0;
   left: 0;
-  width: 100%; /* Full width */
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: black;
   padding: 0px 20px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 `;
 
 const LogoContainer = styled.div`
@@ -101,6 +67,7 @@ const NavLinks = styled.ul`
   display: flex;
   margin: 0;
   padding: 0;
+  cursor: pointer;
 `;
 
 const NavItem = styled.li`

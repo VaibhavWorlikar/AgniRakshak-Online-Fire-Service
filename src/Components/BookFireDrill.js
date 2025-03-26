@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Form, Button } from 'react-bootstrap';
+import bgImage from '../images/bookdrill.jpg'; // Background image
 
 const BookFireDrill = () => {
     const [formData, setFormData] = useState({
@@ -100,25 +101,30 @@ const BookFireDrill = () => {
 
 const PageContainer = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
     height: 100vh; /* Full viewport height */
-    background-color: #f0f0f0; /* Light background color */
+    background-image: url(${bgImage}); /* Background image */
+    background-size: cover;
+    background-position: center;
 `;
 
 const FormContainer = styled.div`
     max-width: 600px;
     width: 100%;
+    margin-right:45px;
     padding: 40px;
-    background-color: #f8f9fa;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Optional: Adds a blur effect to the background */
+    z-index: 1; /* Ensure form appears above background */
 `;
 
 const Title = styled.h1`
     text-align: center;
     margin-bottom: 20px;
-    color: #333;
+    color: black;
+    font-size: 45px;
 `;
 
 const SubmitButton = styled(Button)`

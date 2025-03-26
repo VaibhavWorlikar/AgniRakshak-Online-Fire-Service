@@ -1,112 +1,57 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { Card, Button } from 'react-bootstrap';
+import React from 'react';
+import '../Styles/Resources.css';
+import evacuation from './videos/evacuation.mp4';
+import fire_extinguisher from './videos/fire_extinguisher.mp4';
+import homesafety from './videos/home_safety.mp4';
+import firesafety from '../Components/videos/firesafety.mp4';
 
 const Resources = () => {
-    const [videoFile, setVideoFile] = useState(null);
-    const [videos, setVideos] = useState([]);
+    const videos = [
+        { url: evacuation, title: 'Evacuation' },
+        { url: fire_extinguisher, title: 'Fire Extinguisher' },
+        { url: homesafety, title: 'Home Safety' },
+        { url: firesafety, title: 'Fire Safety' }
+    ];
 
-    const handleFileChange = (event) => {
-        const file = event.target.files[0];
-        if (file) {
-            setVideoFile(URL.createObjectURL(file)); // Create a local URL for preview
-        }
-    };
+    const handleVideoClick = (event) => {
+        const videoElement = event.target;
 
-    const handleUpload = () => {
-        if (videoFile) {
-            setVideos([...videos, { url: videoFile, title: `Video ${videos.length + 1}` }]); // Add the video to the list
-            setVideoFile(null); // Clear the file input
+        if (videoElement.requestFullscreen) {
+            videoElement.requestFullscreen(); // For modern browsers
+        } else if (videoElement.mozRequestFullScreen) {
+            videoElement.mozRequestFullScreen(); // For Firefox
+        } else if (videoElement.webkitRequestFullscreen) {
+            videoElement.webkitRequestFullscreen(); // For Safari
+        } else if (videoElement.msRequestFullscreen) {
+            videoElement.msRequestFullscreen(); // For IE/Edge
         }
+
+        videoElement.play(); // Play the video automatically
+        videoElement.volume = 1.0; // Ensure the sound is at full volume
     };
 
     return (
-        <PageContainer id='resources'>
-            <ContentContainer>
-                <Title>Safety Resources</Title>
-                <UploadSection>
-                    <Input type="file" accept="video/*" onChange={handleFileChange} />
-                    <UploadButton onClick={handleUpload}>Upload Video</UploadButton>
-                </UploadSection>
-                <CardContainer>
+        <div id="resources" className="page-container">
+            <h1 className="heading">Safety Resources</h1>
+            <div className="content-container">
+                <div className="card-container">
                     {videos.map((video, index) => (
-                        <StyledCard key={index}>
-                            <Card.Body>
-                                <Card.Title>{video.title}</Card.Title>
-                                <Video controls>
-                                    <source src={video.url} type="video/mp4" />
-                                    Your browser does not support the video tag.
-                                </Video>
-                            </Card.Body>
-                        </StyledCard>
+                        <div className="styled-card" key={index}>
+                            <video
+                                className="video"
+                                controls
+                                onClick={handleVideoClick}
+                            >
+                                <source src={video.url} type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                            <h2>{video.title}</h2>
+                        </div>
                     ))}
-                </CardContainer>
-            </ContentContainer>
-        </PageContainer>
+                </div>
+            </div>
+        </div>
     );
 };
-
-const PageContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Full viewport height */
-    background-color: #f0f0f0; /* Light background color */
-`;
-
-const ContentContainer = styled.div`
-    width: 100%;
-    max-width: 800px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-`;
-
-const Title = styled.h1`
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-`;
-
-const UploadSection = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-`;
-
-const Input = styled.input`
-    margin-bottom: 10px;
-`;
-
-const UploadButton = styled(Button)`
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #fe6434;
-    border: none;
-    border-radius: 5px;
-
-    &:hover {
-        background-color: #e5532d;
-    }
-`;
-
-const CardContainer = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-`;
-
-const StyledCard = styled(Card)`
-    width: 18rem;
-    margin: 10px;
-`;
-
-const Video = styled.video`
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-`;
 
 export default Resources;
